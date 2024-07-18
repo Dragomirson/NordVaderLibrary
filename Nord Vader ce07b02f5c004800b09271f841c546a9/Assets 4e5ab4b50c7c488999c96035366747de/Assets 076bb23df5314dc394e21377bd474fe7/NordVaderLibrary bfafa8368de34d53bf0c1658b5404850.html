@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>NordVaderLibrary</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bfafa836-8de3-4d53-bf0c-1658b5404850" class="page sans"><header><img class="page-cover-image" src="NordVaderLibrary%20bfafa8368de34d53bf0c1658b5404850/NordVaderLibrary_Logo_1920x1080.png" style="object-position:center 50%"/><h1 class="page-title">NordVaderLibrary</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Version</th><td>0.03</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>UE</th><td><span class="selected-value select-value-color-gray">5.3 - 5.4</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Category</th><td><span class="selected-value select-value-color-blue">Code Plugin</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Platforms</th><td><span class="selected-value select-value-color-yellow">💻 Windows</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Short Description</th><td>What is NordWaderLibrary?<br/>Is a toolkit for Unreal Engine developers, offering asynchronous functions to streamline workflows. It handles complex, resource-intensive tasks without disrupting the main game thread, ensuring smooth and effective performance.<br/></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Discord</th><td><a href="https://discord.gg/D39JZHHpwD">https://discord.gg/D39JZHHpwD</a></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Roadmap</th><td><a href="NordVaderLibrary%20bfafa8368de34d53bf0c1658b5404850/Roadmap%20dddb207e506044248307e87e5fc69692.html">Roadmap</a> </td></tr></tbody></table></header><div class="page-body"><figure id="6df9ba11-1b1e-44de-9f73-ec97c4538c2d" class="link-to-page"><a href="../../../Hello%20and%20thank%20you%20for%20using%20NordVader%20Library!%206df9ba111b1e44de9f73ec97c4538c2d.html">Hello and thank you for using NordVader Library!</a></figure><figure id="dddb207e-5060-4424-8307-e87e5fc69692" class="link-to-page"><a href="NordVaderLibrary%20bfafa8368de34d53bf0c1658b5404850/Roadmap%20dddb207e506044248307e87e5fc69692.html">Roadmap</a></figure><figure id="7b8ec66b-4d4e-4326-a692-34350fb0b226" class="link-to-page"><a href="NordVaderLibrary%20bfafa8368de34d53bf0c1658b5404850/Change%20List%207b8ec66b4d4e4326a69234350fb0b226.html">Change List</a></figure><h3 id="fe6df0af-4ed5-4785-ba59-10370e39c950" class=""><strong>Overview:</strong></h3><p id="ede57ca5-5709-4958-9955-f609c6e746e3" class="">The NordVaderLibrary Plugin is a comprehensive toolkit designed for Unreal Engine developers to enhance their workflow with a variety of powerful, asynchronous functions. These functions are specifically crafted to handle complex, resource-intensive tasks without interrupting the main game thread, ensuring smooth and efficient performance.</p><h3 id="9191bc10-d81c-4134-b4c9-54465ca55b20" class=""><strong>Features:</strong></h3><ul id="eb99dbdf-2f16-4fe7-8b9b-94b78e31128c" class="bulleted-list"><li style="list-style-type:disc"><strong>Asynchronous Actor Spawning</strong>: Efficiently spawn actors, emitters, and decals without causing game lag.</li></ul><ul id="2e9cb446-2041-4e71-82e1-284d51c57598" class="bulleted-list"><li style="list-style-type:disc"><strong>Parallel Processing</strong>: Utilize multi-threading for intensive calculations and checks.</li></ul><ul id="a97dc493-d036-436a-9de7-17a511c1c09c" class="bulleted-list"><li style="list-style-type:disc"><strong>Soft Reference Handling</strong>: Manage and load assets dynamically using soft references to optimize memory usage.</li></ul><ul id="2c9d7846-0117-47d0-9267-c0d5af0d3d28" class="bulleted-list"><li style="list-style-type:disc"><strong>Advanced Damage Handling</strong>: Apply damage with precision using safe and parallel methods.</li></ul><ul id="05a78ce1-8e5c-4515-bdf8-556060e9b145" class="bulleted-list"><li style="list-style-type:disc"><strong>Math Utilities</strong>: Perform complex range checks and random value generation effortlessly.</li></ul><h3 id="d05c260b-3e39-4e5d-9660-f5556902d08d" class=""><strong>Core Functions:</strong></h3><p id="0873bc36-7ab5-4cf7-b984-d2245d2a67dc" class="">Functions with the <code><strong>Task</strong></code> suffix and without it in the NordVaderLibrary Plugin differ based on the following criteria:</p><h3 id="892af924-a001-4065-9cf1-bd18bb717472" class=""><strong>Functions without the </strong><code><strong>Task</strong></code><strong> suffix:<br/><br/></strong></h3><ol type="1" id="35a60bfb-1b5f-41de-8d69-8ec50521490e" class="numbered-list" start="1"><li><strong>Synchronous Execution</strong>:<ul id="4adeacd5-bce9-4801-8da3-66d398ac664a" class="bulleted-list"><li style="list-style-type:disc">These functions run in the main game thread.</li></ul><ul id="fb9f0f0b-afe8-4bed-8e9c-a85394a032d8" class="bulleted-list"><li style="list-style-type:disc">They block further code execution until they complete.</li></ul><ul id="d00e7927-5c42-4534-bd75-e864ad9db281" class="bulleted-list"><li style="list-style-type:disc">This can cause delays in the game if tasks require significant resources or time.</li></ul></li></ol><ol type="1" id="ee9d6266-13d6-4a79-9b33-8c0c7600ebdf" class="numbered-list" start="2"><li><strong>Ease of Use</strong>:<ul id="97633d05-205b-47dc-a08f-bed3ca317805" class="bulleted-list"><li style="list-style-type:disc">These functions are easier to debug and use since all operations occur in a single thread.</li></ul><ul id="c9a8ac90-d518-46b8-8c90-d70be0617f30" class="bulleted-list"><li style="list-style-type:disc">Suitable for simple scenarios where tasks are quick and don&#x27;t require significant resources.</li></ul></li></ol><ol type="1" id="455fa862-7d9b-4451-92f0-6075f14ccf44" class="numbered-list" start="3"><li><strong>Direct Use of Soft References</strong>:<ul id="04528a1a-d39a-4cf4-8086-935282bc12e6" class="bulleted-list"><li style="list-style-type:disc">These functions can load classes or assets via soft references and perform necessary actions synchronously.</li></ul><ul id="d6d20778-406d-4a3c-b3f9-39d402450925" class="bulleted-list"><li style="list-style-type:disc">This allows for dynamic resource loading without permanently storing them in memory, reducing overall memory usage.</li></ul></li></ol><h3 id="5eb9d7e3-fbe3-43d4-a0d1-4d1c48d1e4b5" class=""><strong>Functions with the </strong><code><strong>Task</strong></code><strong> suffix:</strong></h3><ol type="1" id="560d74b6-8815-486e-a56c-407521d02bed" class="numbered-list" start="1"><li><strong>Asynchronous Execution</strong>:<ul id="43f137e1-b377-4c9a-8f1d-c4a4886aa1de" class="bulleted-list"><li style="list-style-type:disc">These functions run in separate threads, allowing the main game thread to continue without delays.</li></ul><ul id="b2ff21ff-ee3d-4302-8d90-8c5cc99d4b80" class="bulleted-list"><li style="list-style-type:disc">They enhance performance by distributing the load across multiple threads.</li></ul></li></ol><ol type="1" id="464aae57-2c95-48e3-871f-a632beee78be" class="numbered-list" start="2"><li><strong>Use in Resource-Intensive Tasks</strong>:<ul id="71417f5d-de3b-4233-9434-9a4de4b28e5a" class="bulleted-list"><li style="list-style-type:disc">Suitable for tasks requiring significant resources or time, such as asset loading or complex computations.</li></ul><ul id="56e574f8-26db-42b6-9335-383d412fd05d" class="bulleted-list"><li style="list-style-type:disc">Asynchronous execution allows the main game to continue, minimizing delays and boosting overall performance.</li></ul></li></ol><ol type="1" id="6b697e2a-f8b2-4c56-afb6-883b23a9e5e7" class="numbered-list" start="3"><li><strong>Complexity of Implementation</strong>:<ul id="df7d7a26-5522-49b0-95db-c5955525e6d8" class="bulleted-list"><li style="list-style-type:disc">They use mechanisms like <code><strong>AsyncTask</strong></code> and delegates to notify when a task is complete.</li></ul><ul id="535fb00d-7d38-46ff-b4bb-f4aa044610cb" class="bulleted-list"><li style="list-style-type:disc">Can also use soft references for dynamic resource loading, ensuring efficient memory use without permanently storing loaded data.</li></ul></li></ol><h3 id="6fa2f1a3-b073-44ba-9c6b-349476a1f8f3" class=""><strong>Examples:</strong></h3><ul id="dfdac917-bb22-4f51-91d1-48e4bd636619" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnActor</strong> (without the <code><strong>Task</strong></code> suffix):<ul id="3be12538-a751-4d29-8d38-380114068cdd" class="bulleted-list"><li style="list-style-type:circle">Asynchronously spawns an actor in the game world.</li></ul><ul id="31c754fc-f63c-49f1-a879-d1fb4a3cbc48" class="bulleted-list"><li style="list-style-type:circle">Executes synchronously in the main game thread.</li></ul></li></ul><ul id="e6f06c24-a992-4ec8-a3af-bd674970680b" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnActorTask</strong> (with the <code><strong>Task</strong></code> suffix):<ul id="30f1ac90-9e73-4057-848a-25a799e3db62" class="bulleted-list"><li style="list-style-type:circle">Queues actor spawning as an asynchronous task.</li></ul><ul id="5208b080-6cca-40bf-ba2c-67f2171193e6" class="bulleted-list"><li style="list-style-type:circle">Runs in a separate thread, not blocking the main game thread.</li></ul></li></ul><p id="c677910f-cccf-4afd-af98-a562f4c467ae" class="">Thus, the primary difference between these functions is in their execution mode: synchronously in the main thread or asynchronously in separate threads, affecting performance and suitable use cases.</p><h3 id="fb5bb550-9035-4f3b-8274-95e9ea3be2c9" class=""><strong>Actor Management:</strong></h3><ul id="39d0b2bd-9a16-4256-aa73-825735dbd019" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnActorTask</strong>: Queues actor spawning as an asynchronous task.</li></ul><ul id="219da953-c69b-4ed2-9b85-35637ef32518" class="bulleted-list"><li style="list-style-type:disc"><strong>SetSeparationWeight</strong>: Adjusts the separation weight for crowd following components to manage AI behavior dynamically.</li></ul><ul id="816fa0db-469b-4e29-b487-35581eff7d50" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnActor</strong>: Asynchronously spawns an actor in the game world.</li></ul><ul id="c3ce4601-8fa8-4539-bfdc-65b9e5962d00" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncDestroyActorTask</strong>: Asynchronously destroys an actor and calls a delegate upon completion.</li></ul><ul id="e63a7c28-69e3-4721-aad1-93e6de8854c3" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncPlayAnimationTask</strong>: Asynchronous task for playing an animation on a skeletal mesh component.</li></ul><ul id="45437c67-020d-4397-b713-258d898121e1" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncPlayAnimation</strong>: Asynchronously plays an animation on a skeletal mesh component.</li></ul><ul id="4c6a0d8a-82ec-41b7-95e3-5d2ac376a151" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSetAnimInstanceClassTask</strong>: Asynchronous task for setting an animation instance class on a skeletal mesh component.</li></ul><ul id="6a703924-f13c-429e-9594-42892cbdabcf" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSetAnimInstanceClass</strong>: Asynchronously sets an animation instance class on a skeletal mesh component.</li></ul><h3 id="0f70fd68-af87-4c6d-a919-35b1dbf80e01" class=""><strong>Load Management:</strong></h3><ul id="5456ec3d-59f9-44d9-8cfa-e9df33d85f91" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncLoadStaticMeshTask</strong>: Asynchronous task for loading a static mesh.</li></ul><ul id="f2915e8f-4d5e-42e9-896f-fb1b84947839" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncLoadSkeletalMeshTask</strong>: Asynchronous task for loading a skeletal mesh</li></ul><h3 id="b33057ff-c718-4f1f-a594-e2c39d6bb266" class=""><strong>Emitter and System Management:</strong></h3><ul id="f050adf3-42ad-4bb7-a059-4c360c17ecc6" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnEmitter</strong>: Spawns particle systems asynchronously.</li></ul><ul id="a80922b8-55f1-4e37-bc99-ba3ab01ab451" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnEmitterTask</strong>: Manages particle system spawning as an asynchronous task.</li></ul><ul id="7d0dcf44-d70b-472d-a70b-189e28daa8c2" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnSystemAttached</strong>: Attaches and spawns Niagara systems asynchronously.</li></ul><ul id="5ceec059-95b4-439f-9cf6-689d93d357d7" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnSystemAttachedTask</strong>: Queues Niagara system spawning as an asynchronous task.</li></ul><ul id="479c5147-b7ee-4238-ad4a-3d02b7a9e0fe" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnSystemAtLocationTask</strong>: Asynchronous task for spawning a particle system at a specific location.</li></ul><h3 id="14dadb2c-31c4-4eda-835c-68ecafa5585a" class=""><strong>Decal Management:</strong></h3><ul id="2ad747aa-d395-4a93-933f-1f346ab219fe" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnDecalAtLocation</strong>: Spawns decals at specified locations asynchronously.</li></ul><ul id="cd8901ca-220e-4e7a-aeda-7123d1c4c4cc" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnDecalAtLocationTask</strong>: Manages decal spawning as an asynchronous task.</li></ul><h3 id="0afbb84d-e30c-4164-8065-5ff0e38d7931" class=""><strong>Sound Management:</strong></h3><ul id="a73f60c6-3915-4e96-aa69-40556b321b6b" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncPlaySoundAtLocation</strong>: Plays sounds at specific locations asynchronously.</li></ul><ul id="8bf04cf3-d41f-431a-819b-7ce3d473f876" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncPlaySoundAtLocationTask</strong>: Manages sound playback as an asynchronous task.</li></ul><h3 id="80913305-16fc-4d6f-9dfe-3feb4b3f3534" class=""><strong>Damage Management:</strong></h3><ul id="a9704a8a-e80d-4450-813f-68f1e9bd5660" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageSafely</strong>: Safely applies damage to an actor using soft references.</li></ul><ul id="671e943a-eec0-4a9f-a0ee-a3d32d3f7a67" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageActorsTask</strong>: Manages applying damage to multiple actors as an asynchronous task.</li></ul><ul id="5314734e-4f92-44f3-9014-18f04e2b2b56" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageActorTask</strong>: Queues damage application to a single actor as an asynchronous task.</li></ul><ul id="c71fbdce-f32b-4e19-b001-7a3935c12596" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyPointDamageActorTask</strong>: Manages point damage application to actors asynchronously.</li></ul><ul id="3c664cbe-0e8c-40fc-881a-e5667b320944" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyRadialDamageActorTask</strong>: Applies radial damage asynchronously.</li></ul><ul id="094a9c58-dd27-4dd3-bd19-1ab8734d376f" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageToActors</strong>: Applies specified damage to a list of actors.</li></ul><h3 id="9f8a06e1-0c83-4f74-9a20-f2bf9c0117da" class=""><strong>Utilities:</strong></h3><ul id="225cd93f-cb9e-4ec4-abaf-bdaad52750b5" class="bulleted-list"><li style="list-style-type:disc"><strong>InRange</strong>: Checks if a value is within a specified range.</li></ul><ul id="0f3cb4c2-34f3-42d2-944e-4d57528d0b33" class="bulleted-list"><li style="list-style-type:disc"><strong>InRange_Pure</strong>: Pure version of InRange for simplified checks.</li></ul><ul id="bbb4b9eb-1158-4e9c-85ce-801a6818a2d9" class="bulleted-list"><li style="list-style-type:disc"><strong>RandomFloatInRange</strong>: Generates random values within a specified range.</li></ul><ul id="b96db905-12e7-4091-84a5-afa72a798371" class="bulleted-list"><li style="list-style-type:disc"><strong>RandomFloatInRange_Pure</strong>: Pure version for generating random values.</li></ul><ul id="3179a9fa-087e-42a4-9688-111628abd10f" class="bulleted-list"><li style="list-style-type:disc"><strong>GetBoolByChance</strong>: Determines if an event should occur based on a given chance.</li></ul><ul id="6a11ad6c-476c-4a1d-9256-d8dc5271a03f" class="bulleted-list"><li style="list-style-type:disc"><strong>GeneratePointsOnSphereFibonacciParallel</strong>: Generates points on a sphere using the Fibonacci lattice method in parallel.</li></ul><ul id="1636892e-f906-4e1e-9444-8e4846a4c163" class="bulleted-list"><li style="list-style-type:disc"><strong>PerformFibonacciLatticeTracesParallel</strong>: Performs ray traces from the center in directions based on points generated by the Fibonacci lattice method and returns an array of hit results.</li></ul><ul id="d9b3484c-1265-4d83-ab43-70f3e3133519" class="bulleted-list"><li style="list-style-type:disc"><strong>GetMemoryUsage</strong>: Retrieves the current memory usage statistics of the system.</li></ul><h3 id="557b2ea1-f906-4b5c-8644-90e9b64b88fc" class=""><strong>Parallel Processing:</strong></h3><ul id="98c54cd2-9981-4495-aa47-ef75e83df512" class="bulleted-list"><li style="list-style-type:disc"><strong>GetActorsBySoftClassParallel</strong>: Filters actors by class using parallel processing.</li></ul><ul id="af917c30-fb38-445a-a24a-9606a8d5f8c9" class="bulleted-list"><li style="list-style-type:disc"><strong>GetWasRecentlyRenderedbyActorsParallel</strong>: Checks if actors were recently rendered using parallel processing.</li></ul><ul id="018b6782-d34b-4f0f-af81-b39e58719b78" class="bulleted-list"><li style="list-style-type:disc"><strong>ParallelSortActorsByDistance</strong>: Sorts actors by distance to a point using multi-threading.</li></ul><ul id="be1fd173-6be6-429b-8025-b0a4c1cc4693" class="bulleted-list"><li style="list-style-type:disc"><strong>CheckActorsInFOVParallel</strong>: Asynchronously checks if actors are within a specified Field of View (FOV) angle of the camera and within a given distance. Optionally verifies if actors are currently being rendered.</li></ul><ul id="d6ab593c-f32c-48ef-b147-58f9db407da4" class="bulleted-list"><li style="list-style-type:disc"><strong>TraceSocketsInActorParallel</strong>: Asynchronously performs traces from a specified start location to sockets on skeletal mesh components tagged with a specified name. It returns a boolean indicating if any trace was successful.</li></ul><h3 id="c5b4e48c-16fc-4453-b960-87852489c262" class=""><strong>Intended Use:</strong></h3><p id="78741ad1-edd3-4cad-9878-17831b00b581" class="">Ideal for game developers working on complex projects requiring efficient resource management and advanced asynchronous operations. The plugin supports various tasks from actor management to damage handling, ensuring high performance and seamless gameplay experience.</p><p id="face7074-4c8f-47af-aa83-6ba3a29a47f1" class="">This plugin is developed and maintained by NordVader Inc., ensuring regular updates and support for users. Transform your development process with NordVaderLibrary&#x27;s advanced asynchronous functionalities today!</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
