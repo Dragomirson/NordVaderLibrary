@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hello and thank you for using NordVader Library!</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6df9ba11-1b1e-44de-9f73-ec97c4538c2d" class="page sans"><header><h1 class="page-title"><mark class="highlight-default">Hello and thank you for using NordVader Library!</mark></h1><p class="page-description"></p></header><div class="page-body"><p id="35d2b6a6-c6f9-44fb-8e70-c9d24d37c565" class="">Is a toolkit for Unreal Engine developers, offering asynchronous functions to streamline workflows. It handles complex, resource-intensive tasks without disrupting the main game thread, ensuring smooth and effective performance.</p><h2 id="1e432c0c-b24b-40e0-ba05-174bdd7d2f6a" class=""><mark class="highlight-purple"><code>Version 0.03</code></mark></h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><mark class="highlight-red">New features</mark></summary><div class="indented"><ul id="69ad5fa7-386a-4469-b9b6-8a800638889a" class="toggle"><li><details open=""><summary><em><strong>UMemoryWidget</strong></em></summary><ul id="dca65709-2f9d-4ba6-96e5-a54a526b5a7d" class="bulleted-list"><li style="list-style-type:disc">Description<p id="97b1cb19-a62e-4094-9112-8259a661e8af" class="">A UI widget that displays real-time memory usage statistics within the game interface.</p></li></ul><ul id="277f0a6e-cc3d-4379-a362-957832910eaa" class="bulleted-list"><li style="list-style-type:disc"><strong>Parameters</strong>:<ul id="6b81a251-96fa-43f0-bad8-9bd50c7a2441" class="bulleted-list"><li style="list-style-type:circle">None</li></ul></li></ul><ul id="d2bb7903-e9ad-47ad-9dd2-f1be0140477e" class="bulleted-list"><li style="list-style-type:disc"><strong>Functionality</strong>:<ul id="f4ef49ac-bf52-402d-8683-015f62c55b2c" class="bulleted-list"><li style="list-style-type:circle">Periodically updates and displays total and used physical and virtual memory, as well as their peak values. Helps developers and users monitor system performance and manage resource usage effectively.</li></ul></li></ul><ul id="64505cb7-cfb7-402a-9f5e-7cf2ee835509" class="bulleted-list"><li style="list-style-type:disc"><strong>Usage</strong>:<ul id="4f1ea699-3953-4ab0-a967-3b6d115becdd" class="bulleted-list"><li style="list-style-type:circle">Create your own BP widget inherited from <code>MemoryWidget</code>.</li></ul><ul id="acbd40f7-3bb3-4847-ab9b-7c2550a3d208" class="bulleted-list"><li style="list-style-type:circle">Add text blocks named <code>TotalPhysicalText</code>, <code>UsedPhysicalText</code>, <code>PeakUsedPhysicalText</code>, <code>TotalVirtualText</code>, <code>UsedVirtualText</code>, and <code>PeakUsedVirtualText</code> and set them as variables.</li></ul><ul id="4ec1c557-0492-4ede-a0eb-a052cccc9c7b" class="bulleted-list"><li style="list-style-type:circle">The widget will automatically update these text blocks with the current memory usage statistics.</li></ul></li></ul></details></li></ul><ul id="c05c6589-31c2-4734-a9e2-caa56822858f" class="toggle"><li><details open=""><summary><em><strong>Update Logic for Informational Windows</strong></em></summary><ul id="b1b6c1a4-185c-4387-96f8-0ba250b1809a" class="bulleted-list"><li style="list-style-type:disc"><strong>Description</strong>: Added new update logic for displaying informational windows.</li></ul><ul id="ab734351-1b79-44d8-8e4b-5e70858804e2" class="bulleted-list"><li style="list-style-type:disc"><strong>Functionality</strong>: Users can now configure how often the update window appears when opening the project.</li></ul><ul id="4570839a-247f-4a41-9eb1-063865b88de4" class="bulleted-list"><li style="list-style-type:disc"><strong>Benefits</strong>:<ul id="c0456011-ce88-4522-90eb-80f3071b413e" class="bulleted-list"><li style="list-style-type:circle"><strong>Enhanced Control</strong>: Users can choose to display the update window every time the project is opened or only when the plugin version changes.</li></ul><ul id="98c1d700-fcff-41a0-893d-1d341904b851" class="bulleted-list"><li style="list-style-type:circle"><strong>Improved User Experience</strong>: Provides flexibility and prevents unnecessary interruptions for users who prefer not to see the update window frequently.</li></ul></li></ul><ul id="3a992000-c127-4085-b7af-65e4a2cb95ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Project Settings Control</strong>:<ul id="14884c76-3c1c-4d3e-b391-ef2824d311ad" class="bulleted-list"><li style="list-style-type:circle"><strong>Location</strong>: The plugin settings can be managed through the Project Settings menu in Unreal Engine under <strong>Plugins -&gt; NordVaderLibrary</strong>.</li></ul><ul id="fbf295e9-4476-4824-902e-486ddd0cb67e" class="bulleted-list"><li style="list-style-type:circle"><strong>Available Setting</strong>:<ul id="5a4235b2-92a6-44cf-94cd-0ae894706b55" class="bulleted-list"><li style="list-style-type:square"><strong>Show Always</strong>: A boolean setting that determines whether the update window appears every time the project is opened or only when the plugin version changes.</li></ul></li></ul></li></ul><figure id="6acc1d7e-8802-45c3-8481-f3449f9b8881" class="image"><a href="Hello%20and%20thank%20you%20for%20using%20NordVader%20Library!%206df9ba111b1e44de9f73ec97c4538c2d/Untitled.png"><img style="width:943px" src="Hello%20and%20thank%20you%20for%20using%20NordVader%20Library!%206df9ba111b1e44de9f73ec97c4538c2d/Untitled.png"/></a></figure></details></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><mark class="highlight-yellow">Fixes</mark></summary><div class="indented"><ul id="97b5c7b9-934f-458f-a222-befe0c052c02" class="bulleted-list"><li style="list-style-type:disc">Fixed function memory leaks, when exiting the simulation, the world is destroyed, and the delegate is still trying to work out what caused the crash.</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Added Functions:</summary><div class="indented"><p id="db4426e5-79fe-4982-8f3b-b36e684a6f36" class=""><strong>Actor Management:</strong></p><ul id="51322fc6-f754-4216-a3d3-0c96b99d7277" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncDestroyActorTask:</strong> Asynchronously destroys an actor and calls a delegate upon completion.</li></ul><ul id="b437291f-5c52-4dc7-90ad-b11c887ba746" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncPlayAnimationTask:</strong> Asynchronously plays an animation on a skeletal mesh component.</li></ul><ul id="a5cbe807-f81d-40d2-a0b0-378a3fa69901" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSetAnimInstanceClassTask:</strong> Asynchronously sets the animation instance class for a skeletal mesh component.</li></ul><p id="0015b66d-8615-4589-b007-1346e07b9c29" class=""><strong>Parallel Processing:</strong></p><ul id="76e835c4-6643-4513-a475-8b2acb6637ec" class="bulleted-list"><li style="list-style-type:disc"><strong>CheckActorsInFOVParallel:</strong> Asynchronously checks if actors are within a specified Field of View (FOV) angle of the camera.</li></ul><ul id="e76a6ad8-e49b-4f64-a29d-22d1f7683ed0" class="bulleted-list"><li style="list-style-type:disc"><strong>TraceSocketsInSkeletalMeshesByTagParallel:</strong> Performs parallel line trace operations from a specified starting location to the socket locations of skeletal mesh components tagged with a specific tag.</li></ul><p id="b38f42d5-1ba7-4cd0-8151-900f95860e42" class=""><strong>Damage Management:</strong></p><ul id="364143f0-e74e-4c8b-b8eb-9eb34daa6226" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageToActors:</strong> Applies specified damage to an array of actor-damage structures.</li></ul><p id="9407a73a-93fe-4f3f-a2a3-78bd3ccb60ed" class=""><strong>Utilities:</strong></p><ul id="d3508a28-2ea0-4a06-ba2f-103c32cdcfbe" class="bulleted-list"><li style="list-style-type:disc"><strong>GetBoolByChance:</strong> Determines if an event should occur based on a given chance.</li></ul><ul id="f12a2e1d-c383-4b36-827e-f46517a74a97" class="bulleted-list"><li style="list-style-type:disc"><strong>GeneratePointsOnSphereFibonacciParallel:</strong> Generates points on a sphere using the Fibonacci lattice method in parallel.</li></ul><ul id="cf351c54-7bff-4106-9d93-bb4183b90a14" class="bulleted-list"><li style="list-style-type:disc"><strong>PerformFibonacciLatticeTracesParallel:</strong> Performs ray traces from the center in directions based on points generated by the Fibonacci lattice method and returns an array of hit results.</li></ul><ul id="c396466f-92c6-4b40-af90-0cbeb4218d28" class="bulleted-list"><li style="list-style-type:disc"><strong>GetMemoryUsage:</strong> Retrieves the current memory usage statistics of the system.</li></ul></div></details><h2 id="6364d348-5fdb-4173-99bf-26226d4032d5" class=""><mark class="highlight-gray"><code>Version 0.02</code></mark></h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Fixes:</summary><div class="indented"><ul id="d2e6cb5e-14a7-4149-b8bc-867bb2a0292a" class="bulleted-list"><li style="list-style-type:disc"><strong>Popup Window Fix:</strong> Fixed an issue where the popup window was being triggered in the packaged version of the game. Now, the popup window is correctly triggered only in the editor.</li></ul></div></details><h2 id="7bf46fae-a832-4af0-abd9-58ad9280f8ca" class=""><mark class="highlight-gray"><code>Version 0.01</code></mark></h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Added Functions:</summary><div class="indented"><p id="e7dde076-88bc-4ebb-8379-1c2639b77dd8" class=""><strong>Actor Management:</strong></p><ul id="dab98e14-f51e-4be7-a374-cd96f2d25fd6" class="bulleted-list"><li style="list-style-type:disc"><strong>SetSeparationWeight:</strong> Sets the separation weight for CrowdFollowingComponent.</li></ul><ul id="ba4c6363-ffcb-4474-bed9-c9a4b19e98cf" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnActor:</strong> Asynchronously spawns an actor in the game world.</li></ul><ul id="55858d96-b4a6-4737-b33a-b9b8218edd42" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnActorTask:</strong> Schedules asynchronous actor spawning as a task.</li></ul><ul id="ba200e1c-65f4-44c2-a5dc-59c79c105cc0" class="bulleted-list"><li style="list-style-type:disc"><strong>OnAsyncSpawnActorComplete:</strong> Internal function called upon completion of asynchronous actor spawning.</li></ul><p id="af7ae64f-91d5-4d59-9102-370c44d34b04" class=""><strong>Emitter and System Management:</strong></p><ul id="bff8e3d8-7fdc-41a0-9047-a4f06fc64ce7" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnEmiter:</strong> Asynchronously spawns a particle emitter.</li></ul><ul id="c6768809-dd28-4310-bc69-168387d1b1d2" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnEmiterTask:</strong> Schedules asynchronous particle emitter spawning as a task.</li></ul><ul id="4a184d37-ce74-4304-b04a-bac6b4786030" class="bulleted-list"><li style="list-style-type:disc"><strong>OnAsyncSpawnEmiterComplete:</strong> Internal function called upon completion of asynchronous particle emitter spawning.</li></ul><ul id="53f1ea88-b13a-4a17-afa5-caa8fac5fd5a" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnSystemAttached:</strong> Asynchronously spawns and attaches a Niagara system.</li></ul><ul id="a95a4cbc-72f8-46e6-a874-d48e4ce9c370" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnSystemAttachedTask:</strong> Schedules asynchronous spawning and attachment of a Niagara system as a task.</li></ul><ul id="5898f484-798e-40c6-9ffa-dda871c3c45d" class="bulleted-list"><li style="list-style-type:disc"><strong>OnAsyncSpawnSystemAttachedComplete:</strong> Internal function called upon completion of asynchronous Niagara system spawning and attachment.</li></ul><p id="aca91780-6b8e-4374-b963-f2996861cd8e" class=""><strong>Decal Management:</strong></p><ul id="3bc08395-78d0-4b51-80b8-fd5ebbf581f1" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnDecalAtLocation:</strong> Asynchronously spawns a decal at a specified location.</li></ul><ul id="19ba3545-7f0b-48a3-9218-3acdfc8340c4" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncSpawnDecalAtLocationTask:</strong> Schedules asynchronous decal spawning at a specified location as a task.</li></ul><ul id="8db8a8f3-1cc4-4f77-921a-023770dfd4f1" class="bulleted-list"><li style="list-style-type:disc"><strong>OnAsyncSpawnDecalAtLocationComplete:</strong> Internal function called upon completion of asynchronous decal spawning.</li></ul><p id="354fcdaf-d244-4db6-9afa-d19f8aac3a2a" class=""><strong>Sound Management:</strong></p><ul id="b447027c-c43c-48f0-b31d-986ce1a87dc8" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncPlaySoundAtLocation:</strong> Asynchronously plays a sound at a specified location.</li></ul><ul id="7601947b-0e18-402c-a898-41b838ed55e5" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncPlaySoundAtLocationTask:</strong> Schedules asynchronous sound playback at a specified location as a task.</li></ul><ul id="97d7413d-92af-4d3a-8598-fa040c8da863" class="bulleted-list"><li style="list-style-type:disc"><strong>OnAsyncPlaySoundAtLocationComplete:</strong> Internal function called upon completion of asynchronous sound playback.</li></ul><p id="96b3d3d3-e0af-41d4-9c5f-fd25f07744b2" class=""><strong>Parallel Processing:</strong></p><ul id="5fbfe129-573e-45af-82a4-6f78efc430ec" class="bulleted-list"><li style="list-style-type:disc"><strong>AsyncFor:</strong> Executes a parallel for loop asynchronously.</li></ul><ul id="cd4ba3c0-ad28-4ff7-8c27-9fb0811d1e11" class="bulleted-list"><li style="list-style-type:disc"><strong>GetActorsBySoftClassParallel:</strong> Asynchronously filters actors by class using parallel processing.</li></ul><ul id="0ffff698-3a7f-49a0-aa04-23a93819f0b9" class="bulleted-list"><li style="list-style-type:disc"><strong>GetWasRecentlyRenderedbyActorsParallel:</strong> Asynchronously checks if actors were recently rendered using parallel processing.</li></ul><ul id="764731bb-1212-4bc5-90de-de9990068037" class="bulleted-list"><li style="list-style-type:disc"><strong>ParallelSortActorsByDistance:</strong> Asynchronously sorts actors by distance to a point using multi-threading.</li></ul><p id="dae9017c-8b79-4345-90b0-c71b802a65c1" class=""><strong>Utilities:</strong></p><ul id="9c0a1c11-5050-4601-bd30-c2c7460903f1" class="bulleted-list"><li style="list-style-type:disc"><strong>CreateSubArrayActors:</strong> Creates a subarray from a given array of actors.</li></ul><ul id="b8db92bc-7784-45bd-9dde-ff0ac7338fcb" class="bulleted-list"><li style="list-style-type:disc"><strong>MergeActorArrays:</strong> Merges multiple arrays of actors into a single array.</li></ul><ul id="67344b76-e4f1-4a22-b246-651c562c3b72" class="bulleted-list"><li style="list-style-type:disc"><strong>MergeSortedActorArraysbylocationToNearest:</strong> Merges sorted arrays of actors by their proximity to a specific location.</li></ul><ul id="d4be6341-d4e8-4f8d-980e-870dfc5a88a9" class="bulleted-list"><li style="list-style-type:disc"><strong>GetActorsBySoftClass:</strong> Filters actors by a specified soft class.</li></ul><ul id="3b086373-de4a-450e-b29a-66614302a137" class="bulleted-list"><li style="list-style-type:disc"><strong>SortActorsByDistance:</strong> Sorts actors by their distance to a specified location.</li></ul><ul id="633c3688-a842-43a3-aca8-d5c1431e6f80" class="bulleted-list"><li style="list-style-type:disc"><strong>GetWasRecentlyRenderedbyActors:</strong> Filters actors that were recently rendered.</li></ul><ul id="7f439016-813b-49cb-bfcb-b4e6123a0fc7" class="bulleted-list"><li style="list-style-type:disc"><strong>InRange:</strong> Checks if a value is within a specified range.</li></ul><ul id="5f34c935-dc86-4fe0-9a86-5a95f9a27efb" class="bulleted-list"><li style="list-style-type:disc"><strong>InRange_Pure:</strong> Pure version of the range check function.</li></ul><ul id="6340495c-552e-462b-af99-7e80af314277" class="bulleted-list"><li style="list-style-type:disc"><strong>RandomFloatInRange:</strong> Generates a random float within a specified range.</li></ul><ul id="d74ed0e8-ddbd-4b7d-a36f-18a6761dc73b" class="bulleted-list"><li style="list-style-type:disc"><strong>RandomFloatInRange_Pure:</strong> Pure version of the random float generation function.</li></ul><p id="c7a6a21d-f45d-4cc6-8526-bf1e6f7cf539" class=""><strong>Damage Management:</strong></p><ul id="4872bceb-ef36-43b9-9f79-b1aaf5735e90" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageSafely:</strong> Safely applies damage to an actor using a critical section for thread safety.</li></ul><ul id="fe96522e-accd-4859-8277-e9ed75ec8f62" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageActorsTask:</strong> Asynchronously applies damage to multiple actors as a task.</li></ul><ul id="3a3c8b89-3131-4e00-9443-897bf4850a15" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyDamageActorTask:</strong> Asynchronously applies damage to a single actor as a task.</li></ul><ul id="36bfecba-f3c3-4680-bb94-a48e6c93d4cb" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyPointDamageActorTask:</strong> Asynchronously applies point damage to an actor.</li></ul><ul id="2c716b9d-fe1b-47e4-9268-cf64aba69de4" class="bulleted-list"><li style="list-style-type:disc"><strong>ApplyRadialDamageActorTask:</strong> Asynchronously applies radial damage.</li></ul><p id="b3d02a10-4e9f-44f7-8b7a-49a4c0c24261" class=""><a href="Nord%20Vader%20ce07b02f5c004800b09271f841c546a9/Assets%204e5ab4b50c7c488999c96035366747de/Assets%20076bb23df5314dc394e21377bd474fe7/NordVaderLibrary%20bfafa8368de34d53bf0c1658b5404850/Change%20List%207b8ec66b4d4e4326a69234350fb0b226.html">See complete changelog</a></p><p id="ad9a653d-97ee-45d9-b92d-1ea773f0f53f" class="">
+</p><p id="a8f587f7-da9c-4d61-b38b-f3705a27f2b2" class="">
+</p><p id="f2e2e8f4-fdc2-42a8-8c2e-1dae3bc1981f" class="">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
